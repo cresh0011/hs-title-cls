@@ -1,0 +1,21 @@
+{
+  // 按 F5 或点右上角 ▷,直接运行当前打开的 Python 文件
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: 当前文件",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      // 用集成终端跑,才能看到 print 的输出
+      "console": "integratedTerminal",
+      // 工作目录固定为项目根目录,保证 data/ 写到预期位置
+      "cwd": "${workspaceFolder}",
+      // 强制 UTF-8 输出:标题噪声里有 emoji,中文 Windows 默认 cp936 会直接崩
+      "env": {
+        "PYTHONUTF8": "1",
+        "PYTHONIOENCODING": "utf-8"
+      }
+    }
+  ]
+}
